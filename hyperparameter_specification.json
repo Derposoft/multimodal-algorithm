@@ -1,0 +1,66 @@
+[
+	{
+		"Name": "n_secs",
+		"Description": "n_secs",
+		"Type": "Continuous",
+		"Range": {
+			"ContinuousParameterRangeSpecification": {
+				"MinValue": "0",
+				"MaxValue": "59"
+			}
+		},
+		"IsTunable": false,
+		"IsRequired": true,
+		"DefaultValue": "0"
+	},
+	{
+		"Name": "n_mins",
+		"Description": "n_mins",
+		"Type": "Continuous",
+		"Range": {
+			"ContinuousParameterRangeSpecification": {
+				"MinValue": "0",
+				"MaxValue": "59"
+			}
+		},
+		"IsTunable": false,
+		"IsRequired": true,
+		"DefaultValue": "5"
+	},
+	{
+		"Name": "n_hours",
+		"Description": "n_hours",
+		"Type": "Continuous",
+		"Range": {},
+		"IsTunable": false,
+		"IsRequired": true,
+		"DefaultValue": "0"
+	},
+	{
+		"DefaultValue": "50",
+		"Description": "n_epochs",
+		"IsRequired": true,
+		"IsTunable": false,
+		"Name": "n_epochs",
+		"Range": {},
+		"Type": "Integer"
+	},
+	{
+		"Name": "quality",
+		"Description": "Quality of algorithm",
+		"Type": "Categorical",
+		"Range": {
+			"CategoricalParameterRangeSpecification": {
+				"Values": [
+					"toy",
+					"default",
+					"light",
+					"very_light"
+				]
+			}
+		},
+		"IsTunable": false,
+		"IsRequired": true,
+		"DefaultValue": "toy"
+	}
+]
