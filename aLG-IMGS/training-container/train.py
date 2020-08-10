@@ -41,12 +41,6 @@ def __load_input_data(path: str) -> TabularDataset:
     except:
         print(f'No csv data in {path}!')
         return None
-    
-def format_for_print(df):
-    table = PrettyTable(list(df.columns))
-    for row in df.itertuples():
-        table.add_row(row[1:])
-    return str(table)
 
 from html.parser import HTMLParser
 import re, string, base64
