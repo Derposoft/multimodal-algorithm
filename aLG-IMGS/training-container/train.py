@@ -78,6 +78,9 @@ def train(args):
     os.environ['NUMEXPR_MAX_THREADS'] = str(os.cpu_count())
     pandarallel.initialize()
 
+    if int(args.n_epochs) < 1:
+        raise ValueError('n_epochs must be greater than 0')
+
     mx.random.seed(127)
     #gpus = mx.test_utils.list_gpus()
     contexts = [mx.cpu()] #[mx.gpu(i) for i in gpus] if len(gpus) > 0 else [mx.cpu()]
