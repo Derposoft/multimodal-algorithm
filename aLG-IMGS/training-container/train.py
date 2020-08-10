@@ -346,7 +346,7 @@ def train(args):
     if has_img:
         predictor_img = []
         for i in range(len(agluon_img_train_data)):
-            task.fit(
+            predictor_img.append(task.fit(
                 train_data=agluon_img_train_data[i],
                 label=target_column,
                 eval_metric=eval_metric,
@@ -359,7 +359,7 @@ def train(args):
                 problem_type='multiclass',
                 hyperparameters=args.quality,
                 output_directory=model_path+'img/'+img_data.columns[i]
-            )
+            ))
         print('done training img')
 
     if has_text:
@@ -387,7 +387,8 @@ def train(args):
     if has_cat:
         wholistic_train = pd.concat([wholistic_train, pd.DataFrame(preds_cat)], axis=1)
     if has_img:
-        wholistic_train = pd.concat([wholistic_train, pd.DataFrame(preds_img)], axis=1)
+        for i in range(len(preds_img)):
+            wholistic_train = pd.concat([wholistic_train, pd.DataFrame(preds_img[i])], axis=1)
     wholistic_input_size = wholistic_train.shape[1]
 
     # save model-specific values to pickle file

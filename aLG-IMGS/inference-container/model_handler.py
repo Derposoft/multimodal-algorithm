@@ -386,7 +386,8 @@ class ModelHandler(object):
         if has_cat:
             wholistic_test = pd.concat([wholistic_test, pd.DataFrame(preds_cat)], axis=1)
         if has_img:
-            wholistic_test = pd.concat([wholistic_test, pd.DataFrame(preds_img)], axis=1)
+            for i in range(len(preds_img)):
+                wholistic_test = pd.concat([wholistic_test, pd.DataFrame(preds_img)], axis=1)
         wholistic_input_size = wholistic_test.shape[1]
 
         print('predicting...')
