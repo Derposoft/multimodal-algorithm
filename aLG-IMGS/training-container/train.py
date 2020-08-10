@@ -433,7 +433,7 @@ def train(args):
         wholistic_train.values,
         mappedlabels.values,
         batch_size=32,
-        epochs=10,
+        epochs=int(args.n_epochs),
         validation_split=0.2
     )
 
@@ -464,6 +464,7 @@ def parse_args():
     parser.add_argument('--n_hours', type=str, default=str(0))
     parser.add_argument('--n_mins', type=str, default=str(5))
     parser.add_argument('--n_secs', type=str, default=str(0))
+    parser.add_argument('--n_epochs', type=str, default=str(50))
     parser.add_argument('--quality', type=str, default="toy")
     # Arguments to be passed to task.fit()
     parser.add_argument('--fit_args', type=lambda s: ast.literal_eval(s),
