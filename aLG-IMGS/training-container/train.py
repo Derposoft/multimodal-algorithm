@@ -412,6 +412,7 @@ def train(args):
         "numcats": numcats,
         "cats": cats,
         "wholistic_input_size": wholistic_input_size,
+        "columns_cat_dummies": cat_data.columns.tolist(),
     }
     with open(model_path+'model_config.pkl', 'wb') as f:
         pickle.dump(model_config, f)

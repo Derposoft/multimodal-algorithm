@@ -109,7 +109,7 @@ class ModelHandler(object):
         if has_img:
             predictor_img = []
             for i in range(len(columns_img)):
-                task.load(model_path+'img/'+columns_img[i])
+                predictor_img.append(task.load(model_path+'img/'+columns_img[i]))
             print('done loading img model')
             
         self.predictor_text = predictor_text
@@ -180,6 +180,7 @@ class ModelHandler(object):
         columns_num = model_config['columns_num']
         columns_cat = model_config['columns_cat']
         columns_img = model_config['columns_img']
+        columns_cat_dummies = model_config['columns_cat_dummies']
         has_text = model_config['has_text']
         has_num = model_config['has_num']
         has_cat = model_config['has_cat']
@@ -330,6 +331,10 @@ class ModelHandler(object):
         cat_data, _ = clean_cat(test_dataset)
         img_data, _ = clean_image(test_dataset)
 
+        # fix cat data
+        for col in columns_cat_dummies:
+            if col not in cat_data.columns.tolist():
+                cat_data[col] = 0
 
         # ### phase one - per-modality training
 
