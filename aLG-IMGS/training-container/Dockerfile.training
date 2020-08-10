@@ -7,10 +7,8 @@ ENV PATH="/opt/ml/code:${PATH}"
 
 # Copies the training code inside the container
 COPY training-container/train.py /opt/ml/code/train.py
-#COPY training-container/inference.py /opt/ml/code/inference.py
 COPY setup.py /usr/local/bin/initializer.py
 RUN python3 /usr/local/bin/initializer.py
-#COPY train_shorter.csv /usr/local/bin/train_shorter.csv
 
 # this environment variable is used by the SageMaker PyTorch container to determine our user code directory.
 ENV SAGEMAKER_SUBMIT_DIRECTORY /opt/ml/code
