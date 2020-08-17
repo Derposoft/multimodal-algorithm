@@ -37,9 +37,9 @@ class MLStripper(HTMLParser):
 app = Flask(__name__) #define app using Flask
 
 
-TEST_DATA = 0
-ptc_to_labs = pd.read_csv('./data/ptc_to_labs.csv')
-ptc_to_labs.set_index('label')
+#TEST_DATA = 0
+#ptc_to_labs = pd.read_csv('./data/ptc_to_labs.csv')
+#ptc_to_labs.set_index('label')
 
 predictor_text = 0
 predictor_num = 0
@@ -74,8 +74,8 @@ def initialize():
     from mxnet.gluon import nn
     #pandarallel.initialize()
 
-    global TEST_DATA
-    TEST_DATA = pd.read_csv('./data/test_short.csv')
+    #global TEST_DATA
+    #TEST_DATA = pd.read_csv('./data/test_short.csv')
 
     global predictor_text
     global predictor_num
@@ -186,8 +186,8 @@ def infer(n):
     global best_base_model_cat
     #global best_base_model_img
 
-    global TEST_DATA
-    global ptc_to_labs
+    #global TEST_DATA
+    #global ptc_to_labs
 
     '''
     json: { 
@@ -485,13 +485,13 @@ def infer(n):
     print(test_dataset)
     print(submission)
     print(predlabs)
-    print(ptc_to_labs)
+    #print(ptc_to_labs)
 
     out_dict = {
         'ID' : str(submission.iloc[0, 0]),
         'label' : {
-            'class': int(submission.iloc[0, 1]),
-            'class meaning': str(ptc_to_labs.iloc[submission.iloc[0, 1], 1])
+            'class': int(submission.iloc[0, 1])#,
+            #'class meaning': str(ptc_to_labs.iloc[submission.iloc[0, 1], 1])
         },
         'nrow' : test_dataset.fillna('NONE').iloc[0,:].to_dict()
     }
