@@ -19,7 +19,11 @@ In the event that the inferencing container requires instance types that are ver
 - The response to the POST request should look something like this:
 
 {
+
     'ID': [id entered with row],
+
     'label': { 'class': predicted class },
+
     'nrow': The row inputted, spat back out at you, but with the labels. Can be used for debugging to ensure that the ordering of the request was correct.
+    
 }
