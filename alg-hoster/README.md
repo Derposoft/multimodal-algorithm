@@ -6,7 +6,7 @@ In the event that the inferencing container requires instance types that are ver
 
 1. Install gunicorn
 2. Install nginx
-3. Copy the nginx server configuration file "flask" to /etc/nginx/sites-enabled. This will throw requests sent over http to the server when we run it. This file can be edited if wanted. Restart the nginx service.
+3. Copy the nginx server configuration file "flask" to /etc/nginx/sites-enabled. This will throw requests sent over http to the server when we run it. This file can be edited if wanted. Restart the nginx service. Make sure to update the [ENTER_SERVER_NAME_HERE] with the IP address of the server that you are planning to run the application on.
 4. Copy the model.tar.gz file from the train container output to alg-hoster/model and extract it there.
 5. Run the following command, while in this directory: **gunicorn app:app --timeout 9999 --daemon --capture-output --log-file SERVER.OUT**. This will start the server in daemon mode, allowing you to drop ssh connection with the server if wanted. All server logs will be outputted to SERVER.OUT. Currently, a 9999 timeout is required in order to allow time for the server to initially load model files.
 
