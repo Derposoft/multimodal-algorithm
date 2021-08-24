@@ -9,4 +9,4 @@ CONTAINER inference can be used not only to understand how to use the training a
 
 The training container is based off of the AWS mxnet training toolkit image, found here: https://github.com/aws/sagemaker-mxnet-training-toolkit
 
-For more information, please see the attached full-length readme "Multimodal Data Algorithm.docx" (coming soon).
+For more information, please see the attached full-length readme "Multimodal Data Algorithm.pdf".
