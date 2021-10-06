@@ -1,7 +1,7 @@
 # multimodal-algorithm
 An algorithm to facilitate the training on and inferencing of multimodal data, along with the necessary machinery needed to package the algorithm up for AWS Sagemaker. The algorithm was built as my intern project at AWS, and I received permission from my manager to display it here on GitHub. For more information - including setup, Sagemaker usage, and implementation details - please see the attached full-length README at the "Multimodal Data Algorithm.pdf" document.
 
-# Use Case
+## Use Case
 The main use cases of multimodal classification, in the context of consumer goods sellers, are to provide better product suggestions and a better customer experience. Scholastic, for example, has a need to classify books into genres based on the cover, description, and page length. Netflix categorizes movies and TV shows into genres based on similar information. A secondary use case is also the labelling and taking down of “restricted products” - in the case of Amazon, for example, this would include the accurate labelling of items like firearms, to aid in their removal from the market.
 
 ## Purpose of the "CONTAINER train" and "CONTAINER inference" Jupyter notebook files
